@@ -9,16 +9,13 @@ public class Solution {
 
     		if(nums[i] < target) {
     			continue;
-    		} else if(nums[i] == target) {
-    			pos = i;
-    			break;
     		} else {
-    			pos = i-1;
+    			pos = i;
     			break;
     		}
     	}
 
-    	if(pos == size)
+    	if(pos == size || pos == -1)
     		pos = nums[0]>target ? 0:size;
 
     	return pos;
