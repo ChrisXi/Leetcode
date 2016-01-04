@@ -27,17 +27,17 @@ public class Solution {
         	int r1 = r+addr;
         	int c1 = c+addc;
 
-        	if(r1<0 || r1>h || c1<0 || c1>h || map[r][c] == 1) {
+        	if(r1<0 || r1>=h || c1<0 || c1>=w || map[r1][c1] == 1) {
         		if(addr == 0 && addc == 1) {
-	        		addr = -1;
+	        		addr = 1;
 	        		addc = 0;
-	        	} else if(addr == -1 && addc == 0) {
+	        	} else if(addr == 1 && addc == 0) {
 	        		addr = 0;
 	        		addc = -1;
 	        	} else if(addr == 0 && addc == -1) {
-	        		addr = 1;
+	        		addr = -1;
 	        		addc = 0;
-	        	} else if( addr == 1 && addc == 0) {
+	        	} else if( addr == -1 && addc == 0) {
 	        		addr = 0;
 	        		addc = 1;
 	        	}
