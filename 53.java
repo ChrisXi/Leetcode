@@ -49,7 +49,7 @@ public class Solution {
     			curMax = curSum;
     		}
         	
-        	if(curSum+nums[i] <= 0){
+        	if(curSum <= 0){
         		restart = true;
         	}
         }
