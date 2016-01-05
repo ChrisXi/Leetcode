@@ -19,6 +19,7 @@ public class Solution {
             if(value != lastValue) {
             	pos.next = temp;
             	pos = temp;
+            	lastValue = value;
             }
         	temp = temp.next;
         }
