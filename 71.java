@@ -16,7 +16,7 @@ public class Solution {
         		i++;
         		int j = i;
         		while(j<len && path.charAt(j)!='/') {
-    				str = str+""+path.charAt(i);
+    				str = str+""+path.charAt(j);
     				j++;
         		}
 
