@@ -13,24 +13,7 @@ public class Solution {
         if(root == null)
         	return true;
 
-        boolean left = true;
-        boolean right = true;
-
-        if(root.left != null) {
-
-        	if(left.val > root.val)
-        		return false;
-
-        	left=check(root.left, null, root);
-        }
-        if(root.right != null) {
-        	if(right.val < root.val)
-        		return false;
-
-			right=check(root.right, root, null);
-        }
-
-		return left&&right;
+		return check(root, null, null);
         
 
     }
@@ -40,12 +23,25 @@ public class Solution {
 		boolean left = true;
         boolean right = true;
 
-        if(node.left != null)
-        	left=check(root.left, null, root);
-        if(root.right != null)
-			right=check(root.right, root, null);
+        if(node.left != null) {
+
+        	if((min != null && node.left.val <= min.val) || node.left.val >= node.val) {
+        		return false;
+        	}
+
+        	left=check(node.left, min, node);
+        }
+
+        if(node.right != null) {
+        	if(node.right.val <= node.val || (max != null && node.right.val >= max.val)) {
+        		return false;
+        	}
+
+			right=check(node.right, node, max);
+        }
 
 		return left&&right;
+        
 		
 
 	}
