@@ -21,7 +21,7 @@ public class Solution {
         	return nums;
 
         s1 = new Stack<TreeNode>();
-        S2 = new Stack<TreeNode>();
+        s2 = new Stack<TreeNode>();
         
 
         List<Integer> num = new ArrayList<Integer>();
@@ -43,22 +43,22 @@ public class Solution {
     			temp = s1.pop();
 
 	    		if(temp.left != null) {
-	    			s.push(temp.left);
+	    			s2.push(temp.left);
 	    			nextNum ++;
 	    		}
 	    		if(temp.right != null) {
-	    			s.push(temp.right);
+	    			s2.push(temp.right);
 	    			nextNum ++;
 	    		}
 	    	} else {
 	    		temp = s2.pop();
 
 	    		if(temp.right != null) {
-	    			s.push(temp.right);
+	    			s1.push(temp.right);
 	    			nextNum ++;
 	    		}
 	    		if(temp.left != null) {
-	    			s.push(temp.left);
+	    			s1.push(temp.left);
 	    			nextNum ++;
 	    		}
 	    	}
@@ -78,7 +78,7 @@ public class Solution {
         		type = 1 - type;
         	}
 
-        } while(!s1.isEmpty() && !s2.isEmpty());
+        } while(!s1.isEmpty() || !s2.isEmpty());
 
         return nums;
     }
