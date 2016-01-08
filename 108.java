@@ -13,7 +13,7 @@ public class Solution {
     	
     	int len = nums.length;
 
-    	return addChiild(nums, 0, len-1);
+    	return addChild(nums, 0, len-1);
     }
 
     public TreeNode addChild(int[] nums, int s, int e) {
