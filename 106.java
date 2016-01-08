@@ -9,14 +9,14 @@
  */
 public class Solution {
 
-	int[] preorder;
+	int[] postorder;
 	int[] inorder;
 
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        this.preorder = preorder.clone();
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        this.postorder = postorder.clone();
         this.inorder = inorder.clone();
 
-        int len = preorder.length;
+        int len = postorder.length;
 
         return build(0, len-1, 0, len-1);
 
@@ -30,7 +30,7 @@ public class Solution {
     	if(s2 == e2)
     		return new TreeNode(this.inorder[s2]);
 
-    	int val = this.preorder[s1];
+    	int val = this.postorder[e1];
     	int index = findNode(val,s2,e2);
 
     	int leftLen = index-s2;
@@ -38,8 +38,8 @@ public class Solution {
 
     	TreeNode node = new TreeNode(val);
 
-    	node.left = build(s1+1, s1+leftLen, s2, index-1);
-    	node.right = build(s1+leftLen+1, e1, index+1, e2);
+    	node.left = build(s1, s1+leftLen-1, s2, index-1);
+    	node.right = build(s1+leftLen, e1-1, index+1, e2);
 
     	return node;
     }
@@ -56,6 +56,6 @@ public class Solution {
 }
 
 /**
-[7,1,0,3,2,5,4,6,9,8,10]
 [0,1,2,3,4,5,6,7,8,9,10]
+[0,2,4,6,5,3,1,8,10,9,7]
 */
