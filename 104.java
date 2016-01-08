@@ -17,19 +17,17 @@ public class Solution {
 
 
         return search(root);
-
-
-
     }
 
     public int search(TreeNode node) {
 
+    	if(node == null)
+    		return 0; 
 
-    	if(node.left) {
+    	int leftDepth = search(node.left)+1;
+    	int rightDepth = search(node.right)+1;
 
-    	}
-
-    	if(node.right)
+    	return leftDepth>=rightDepth ? leftDepth:rightDepth;
     }
 
 }
