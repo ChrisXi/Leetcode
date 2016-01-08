@@ -10,19 +10,9 @@
 public class Solution {
     public int minDepth(TreeNode root) {
         
-        if(root == null)
-    		return 0;
+        
 
-    	int left = depth(root.left)+1;
-    	int right = depth(root.right)+1;
-
-    	int max = Math.max(left,right);
-    	int min = Math.min(left,right);
-
-    	if(min == 1)
-    		return max;
-
-        return left<right ? left:right;
+        return depth(root);
     }
 
     public int depth(TreeNode node) {
