@@ -21,6 +21,7 @@ public class Solution {
 
         add(root, path, sum);
 
+        return paths;
     }
 
     public void add(TreeNode node, ArrayList path, int sum) {
@@ -41,9 +42,9 @@ public class Solution {
 
 
         if(node.left != null) 
-            left = add(node.left, temp, sum-node.val);
+            add(node.left, temp, sum-node.val);
         if(node.right != null)
-            right = add(node.right, temp, sum-node.val);
+            add(node.right, temp, sum-node.val);
 
     }
 }
