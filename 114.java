@@ -11,11 +11,10 @@ public class Solution {
     public void flatten(TreeNode root) {
         
         if(root == null) 
-        	return root;
+        	return;
 
         getNode(root);
 
-        return root;
     }
 
     public TreeNode getNode(TreeNode node) {
@@ -38,6 +37,7 @@ public class Solution {
     		if(leafRight != null) {	
 
     			leafLeft.right = node.right;
+
     			node.right = node.left;
 
     			return leafRight;
@@ -47,6 +47,8 @@ public class Solution {
 
     			return leafLeft;
     		}
+
+            node.left = null;
     	}
 
     	return leafRight;
