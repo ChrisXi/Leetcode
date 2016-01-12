@@ -7,10 +7,16 @@ public class Solution {
        int minPrice = -1;
 
        for(int i=0; i<len; i++) {
+       		if(minPrice == -1 || prices[i] < minPrice) {
+       			minPrice = prices[i];
+       		} else {
 
-
+       			if(prices[i]-minPrice > maxProfit) {
+       				maxProfit = prices[i]-minPrice;
+       			}
+       		}
        }
 
-
+       return maxProfit;
     }
 }
