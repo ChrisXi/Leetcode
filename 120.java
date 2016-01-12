@@ -12,7 +12,7 @@ public class Solution {
  			for(int i=0; i<triangle.get(l).size()-1; i++) {
 
  				int pre = triangle.get(l).get(i);
- 				int next = triangle.get(l).get(i+1)
+ 				int next = triangle.get(l).get(i+1);
  				n1 = pre<next ? pre:next;
  				n2 = triangle.get(l+1).get(i+1);
 
