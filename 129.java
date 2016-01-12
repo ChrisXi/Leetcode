@@ -20,6 +20,12 @@ public class Solution {
 
         add(root, 0);
 
+        int sum = 0;
+        for(int i=0; i<nums.size(); i++) {
+        	sum += nums.get(i);
+        }
+
+        return sum;
     }
 
     public void add(TreeNode node, int num) {
