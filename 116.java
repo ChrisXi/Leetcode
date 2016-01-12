@@ -13,7 +13,7 @@ public class Solution {
     		return;
 
     	Queue<TreeLinkNode> q = new LinkedList<TreeLinkNode>();
-    	Queue.offer(root);
+    	q.offer(root);
 
     	TreeLinkNode pre = null;
     	int count = 1;
@@ -28,15 +28,18 @@ public class Solution {
 
     		if(pre != null) {
     			pre.next = node;
-    			pre = node;
-    		}
-
+    		} 
+    		
+    		pre = node;
+    		
     		if(node.left != null) {
     			q.offer(node.left);
+    			nextNum++;
     		}
 
     		if(node.right != null) {
     			q.offer(node.right);
+    			nextNum++;
     		}
 
     		if(curNum == count) {
