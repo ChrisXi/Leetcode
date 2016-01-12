@@ -12,7 +12,7 @@ public class Solution {
 
         while(no <= rowIndex-1) {
 			nums.add(0,0);
-			for(int i=0; i<rowIndex-1; i++) {
+			for(int i=0; i<=no; i++) {
 				nums.set(i, nums.get(i)+nums.get(i+1));
 			}    
         }
