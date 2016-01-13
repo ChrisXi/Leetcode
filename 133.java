@@ -29,9 +29,8 @@ public class Solution {
     		return table.get(n.label);
     	}
 
-    	table.put(temp.label, temp);
-
     	UndirectedGraphNode temp = new UndirectedGraphNode(n.label);
+    	table.put(temp.label, temp);
 
     	for(int i=0; i<n.neighbors.size(); i++) {
 
