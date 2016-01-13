@@ -7,7 +7,7 @@ public class Solution {
         for(int i=0; i<len; i++)
         	acc += (gas[i]-cost[i]);
 
-        if(gas < 0)
+        if(acc < 0)
         	return -1;
         
         int index = 0;
@@ -20,5 +20,6 @@ public class Solution {
         	}
         }
 
+        return index;
     }
 }
