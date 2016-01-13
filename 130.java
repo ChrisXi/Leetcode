@@ -65,8 +65,8 @@ public class Solution {
     		check(lenr, lenc, r+1, c, board, checkBoard);
     	}
 
-    	for(int r=0; r<len; r++) {
-    		for(int c=0; c<len; c++) {
+    	for(int r=0; r<lenr; r++) {
+    		for(int c=0; c<lenc; c++) {
     			if(checkBoard[r][c] == 0) {
     				board[r][c] = 'X';
     			}
