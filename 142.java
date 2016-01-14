@@ -17,25 +17,19 @@ public class Solution {
 
         ListNode p1 = head;
         ListNode p2 = head;
-        ListNode p3 = null;
+        ListNode p3 = head;
 
-        int count = 0;
+        
         while(p2!=null && p2.next!=null) {
 
-            if(count == 0) {
-                p1 = p1.next;
-                p2 = p2.next.next;
-            } else {
-                p1 = p1.next;
-                p3 = p3.next;
-            }
-
+            p1 = p1.next;
+            p2 = p2.next.next;
+                
             if(p1 == p2) {
-                count ++;
-                p3 = head;
-            }
-
-            if(p1 == p3) {
+                while(p1 != p3) {
+                    p1 = p1.next;
+                    p3 = p3.next;
+                }
                 return p1;
             }
 
