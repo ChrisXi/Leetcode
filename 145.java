@@ -8,7 +8,7 @@
  * }
  */
 public class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> nums = new ArrayList<Integer>();
 
         if(root == null)
@@ -20,7 +20,8 @@ public class Solution {
         while(!s.isEmpty()) {
         	TreeNode n = s.pop();
 
-        	nums.add(n.val);
+            nums.add(0, n.val);
+        	
 
         	if(n.left != null) {
         		s.push(n.left);
@@ -29,6 +30,7 @@ public class Solution {
         	if(n.right != null) {
         		s.push(n.right);
         	}
+            
 
         }
 
