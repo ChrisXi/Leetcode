@@ -9,7 +9,11 @@ public class Solution {
         while(i<len) {
         	if(s.charAt(i) == ' ') {
         		if(!temp.equals("")) {
-        			str = str+" "+temp;
+        			if(str.equals("")) {
+        				str = temp;
+        			} else {
+        				str = temp+" "+str;
+        			}
         		}
         		temp = "";
         	} else {
@@ -17,6 +21,14 @@ public class Solution {
         	}
         	i++;
         }
+
+        if(!temp.equals("")) {
+			if(str.equals("")) {
+				str = temp;
+			} else {
+				str = temp+" "+str;
+			}
+		}
 
         return str;
     }
