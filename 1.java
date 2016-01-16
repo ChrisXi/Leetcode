@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Hashtable;
 
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
