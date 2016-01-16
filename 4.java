@@ -25,7 +25,7 @@ public class Solution {
         }
 
         if(l == 1) {
-            return Math.min(nums1[n1], nums2[n2]);
+            return Math.min(nums1[s1], nums2[s2]);
         }
 
         int part1 = Math.min(l/2, n1);
