@@ -16,7 +16,7 @@ public class Solution {
     				}
     			} else {
     				if(match[i][j-1] == 1 || match[i][j-2] == 1) {
-    					match[i][j] == 1;
+    					match[i][j] = 1;
     				} else if(match[i-1][j] == 1 && 
     					(p.charAt(j-2) == s.charAt(i-1) || p.charAt(j-2) == '.')) {
     					match[i][j] = 1;
