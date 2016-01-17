@@ -16,9 +16,6 @@ public class Solution {
             x = x/10;
         } 
 
-
-
-
         return (int)num;
     }
 }
