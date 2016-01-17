@@ -32,7 +32,7 @@ public class Solution {
         	}
         	temp.next = null;
 
-        	if(h == null) {
+        	if(h == null){
         		h = temp;
         		t = h;
         	} else {
