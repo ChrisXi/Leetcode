@@ -14,6 +14,7 @@ public class Solution {
 
     	ListNode tempH = null;
     	ListNode tempE = null;
+    	ListNode lastE = null;
 
     	int n = 0;
     	while(loop != null) {
@@ -30,6 +31,11 @@ public class Solution {
 
     			if(add(tempE, k) != null) 
     				tempE.next = post;
+
+    			if(lastE != null)
+    				lastE.next = tempH;
+
+    			lastE = tempE;
 
     			n = 0;
     		}
