@@ -1,69 +1,74 @@
+import java.util.Hashtable;
+
 public class Solution {
-    public void nextPermutation(int[] nums) {
- 		
- 		if(nums.length == 0)
- 			return;
+    public List<Integer> findSubstring(String s, String[] words) {
 
- 		int size = nums.length;
- 		int pos = size;
+    	Hashtable<String, Integer> map = new Hashtable<String, Integer>();
 
- 		int large = nums[size-1];
- 		int largepos = size-1;
- 		for(int i=size-2; i>=0; i--) {
- 			if(nums[i] < large) {
- 				pos = i;
- 				break;
- 			} 
-
- 			if(nums[i]>large) {
- 				large = nums[i];
- 				largepos = i;
- 			}
- 		}
-
- 		if(pos == size) {
- 			sort(nums, 0, size-1);
- 		} else {
- 			int small = large;
- 			int smallpos = largepos;
- 			for(int j=pos+1; j<size; j++) {
- 				if(nums[j]>nums[pos] && nums[j]<small) {
- 					small = nums[j];
- 					smallpos = j;
- 				}
- 			}
- 			nums[smallpos] = nums[pos];
- 			nums[pos] = small;
-
- 			sort(nums, pos+1, size-1);
- 		}
-
-    }
-
-    public void sort(int nums[], int start, int end) {
-
-    	if(start >= end) 
-    		return;
-
-    	int flag = nums[end];
-    	int currentPos = start;
-    	for(int i=start; i<end; i++) {
-    		if(nums[i] <= flag) {
-    			int temp = nums[i];
-    			nums[i] = nums[currentPos];
-    			nums[currentPos] = temp;
-    			currentPos ++;
-    		} 
+    	for(int i=0; i<words.length; i++) {
+    		if(map.containsKey(words[i])) {
+    			map.put(words[i], map.get(words[i])+1);
+    		} else {
+    			map.put(words[i], 1);
+    		}
     	}
 
-    	nums[end] = nums[currentPos];
-		nums[currentPos] = flag;
-	
+    	int len = s.length();
+    	int slen = words[0].length();
 
-    	sort(nums, start, currentPos-1);
-    	sort(nums, currentPos+1, end);
+    	List<Integer> index = new ArrayList<Integer>();
+    	
+    	Hashtable<String, Integer> temp = new Hashtable<String, Integer>();
+    	for(int start=0; start<slen; start++) {
+    		temp.clear();
+    		int count = 0;
+    		for(int i=start; i<len; i += slen) {
+	    		
+	    		if(len-i<slen) {
+	    			break;
+	    		}
 
+	    		String sub = s.substring(i, i+slen);
+	    		if(map.containsKey(sub)) {
+	    			if(temp.containsKey(sub)) {
+
+	    				if(temp.get(sub)<map.get(sub)) {
+	    					temp.put(sub, temp.get(sub)+1);
+	    					count ++;
+	    				} else {
+	    					temp.clear();
+	    					temp.put(str, 1);
+	    					count = 1;
+	    					for(int j=i-slen; j>=0; j -= slen) {
+		    					String str = s.substring(j, j+slen);
+		    					if(sub.equals(str)) {
+		    						if(temp.get(str) == map.get(str) ) {
+		    							break;
+		    						} else {
+		    							temp.put(str, temp.get(str)+1);
+		    							count ++;
+		    						}
+		    					} else {
+		    						temp.put(str, temp.getOrDefault(str,0)+1);
+		    						count ++;
+		    					}
+	    					}
+	    				}
+
+	    			} else {
+	    				temp.put(sub, 1);
+	    				count ++;
+	    			}
+
+	    		} else {
+	    			count = 0;
+	    			temp.clear();
+	    		}
+    		}
+    	}
+
+    	
+        
+        return index;
     }
 }
-
-

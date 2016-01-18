@@ -7,18 +7,17 @@ public class Solution {
 
         while(left < right) {
             int minH = Math.min(height[left], height[right]);
-            if(maxArea > (right-left)*minH) {
+            if(maxArea < (right-left)*minH) {
                 maxArea = (right-left)*minH;
             }
 
             if(height[left] > height[right]) {
-                left ++;
-            } else {
                 right --;
+            } else {
+                left ++;
             }
         }
 
-        
-        return ;
+        return maxArea;
     }
 }
