@@ -5,11 +5,11 @@ public class Solution {
 
         int start = 0;
         int end = len-1;
-        for(int i=0; i<len; i++) {
-        	
+        while(start<=end) {
+        	int mid = (start+end)/2;
         	if(target > nums[mid]) {
-        		if(target > nums[start]) {
-        			if(nums[mid] > nums[start]) {
+        		if(target >= nums[start]) {
+        			if(nums[mid] >= nums[start]) {
         				start = mid+1;
         			} else {
         				end = mid-1;
@@ -18,17 +18,17 @@ public class Solution {
         			start = mid+1;
         		}
         	} else if(target < nums[mid]) {
-        		if(target > nums[start]) {
+        		if(target >= nums[start]) {
         			end = mid-1;
         		} else {
-        			if(nums[mid] > nums[start]) {
+        			if(nums[mid] >= nums[start]) {
         				start = mid+1;
         			} else {
         				end = mid-1;
         			}
         		}
         	} else {
-        		return mid;
+        		return mid;  
         	}
         }
 
