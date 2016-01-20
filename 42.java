@@ -22,10 +22,11 @@ public class Solution {
         int water = 0;
         for(int i=0; i<len; i++) {
         	if(height[i]<rightMax[i] && height[i]<leftMax[i]) {
-
+        		int min = Math.min(rightMax[i], leftMax[i]);
+        		water += (min-height[i]);
         	}
         }
 
-
+        return water;
     }
 }
