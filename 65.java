@@ -20,13 +20,21 @@ public class Solution {
         		}
         	} else if(s.charAt(i) == '+' || s.charAt(i) == '-') {
 
-        		if(findNumber || findSpace) {
+        		if(findNumber) {
+        			if(i-1>0 && s.charAt(i-1) == 'e') {
+        				return false;
+        			} else {
+        				continue;
+        			}
+        		}
+
+        		if(findSpace) {
         			return false;
         		} 
 
-    			if(i+1>=len || '9' < s.charAt(i+1) || s.charAt(i+1) < '0') {
+    			if(i+1<len && (('9' < s.charAt(i+1) || s.charAt(i+1) < '0') && s.charAt(i+1) != '.')) {
 					return false;
-    			}
+    			} 
         	} else if(s.charAt(i) == '.') {
 
         		if(findSpace || findE || findDot)
@@ -36,11 +44,7 @@ public class Solution {
 
     			if(i+1<len && (('9' < s.charAt(i+1) || s.charAt(i+1) < '0') && s.charAt(i+1) != 'e' && s.charAt(i+1) != ' ')) {
 					return false;
-    			} else if(i+1<len && s.charAt(i+1) == ' ') {
-    				if(i-1<0 || '9' < s.charAt(i-1) || s.charAt(i-1) < '0') {
-						return false;
-    				}
-    			}
+    			} 
 
         	} else if(s.charAt(i) == 'e') {
         		if(findSpace || findE)
