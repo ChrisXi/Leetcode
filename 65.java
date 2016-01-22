@@ -22,9 +22,9 @@ public class Solution {
 
         		if(findNumber) {
         			if(i-1>0 && s.charAt(i-1) == 'e') {
-        				return false;
-        			} else {
         				continue;
+        			} else {
+        				return false;
         			}
         		}
 

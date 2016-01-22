@@ -23,11 +23,9 @@ public class Solution {
     	char c = this.digits.charAt(no);
     	List<Character> letters = getLetter(c);
 
-        String temp = "";
     	for(int i=0; i<letters.size(); i++) {
-    	    temp = str + letters.get(i);
+    		String temp = str + letters.get(i);
     		combineLetters(no+1, temp);
-            temp = temp.substring(0,temp.length()-1);
     	}
     	
     } 
