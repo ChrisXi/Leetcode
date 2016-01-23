@@ -8,20 +8,23 @@ public class Solution {
         int len = nums.length;
         Arrays.sort(nums);
 
+
         combine(new ArrayList<Integer>(), nums, 0, len);
 
+        return coms;
     }
 
     public void combine(ArrayList<Integer> com, int[] nums, int k, int n) {
 
     	if(k == n) {
     		coms.add(new ArrayList<Integer>(com));
+    		return;
     	}
 
     	com.add(nums[k]);
     	combine(com, nums, k+1, n);
 
-    	com.remove(nums[k]);
+    	com.remove(new Integer(nums[k]));
     	combine(com, nums, k+1, n);
 
     }
