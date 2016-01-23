@@ -1,6 +1,5 @@
 public class Solution {
-    public int minPathSum(int[][] grid) {
-        
+    public int uniquePaths(int m, int n) {
         if(grid.length == 0)
         	return 0;
 
@@ -12,16 +11,16 @@ public class Solution {
         dp[0][0] = grid[0][0];
 
         for(int i=1; i<w; i++) {
-        	dp[0][i] = grid[0][i];
+        	dp[0][i] = 1;
         }
 
         for(int i=1; i<h; i++) {
-        	dp[i][0] = grid[i][0];
+        	dp[i][0] = 1;
         }
 
         for(int i=1; i<h; i++) {
         	for(int j=1; j<w; j++) {
-        		dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1])+grid[i][j];
+        		dp[i][j] = dp[i-1][j]+dp[i][j-1];
         	}
         }
 
