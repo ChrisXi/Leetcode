@@ -20,15 +20,13 @@ public class Solution {
     	combine(com, nums, k+1, n);
 
     	int j = k+1;
-    	while(nums[i]!=nums[j] && j<n) {
+    	while(j<n && nums[k]==nums[j]) {
     		j++;
     	}
     	
-
-    	if(j != -1) {
-    		com.remove(new Integer(nums[k]));
-    		combine(com, nums, j, n);
-    	}
+		com.remove(new Integer(nums[k]));
+		combine(com, nums, j, n);
+    	
 
     }
 }
